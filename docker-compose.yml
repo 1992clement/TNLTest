@@ -10,7 +10,7 @@ services:
     volumes:
       - ./database-env:/docker-entrypoint-initdb.d
   php_symfony:
-    image: 1992clement/php-symfony:1.0.1
+    image: 1992clement/php-symfony:1.0.2
     container_name: php-symfony
     depends_on:
       - db
@@ -19,8 +19,6 @@ services:
     ports:
       - "8000:8000"
     command:
-      - /bin/sh
-      - -c
-      - composer install && php bin/console server:run 0.0.0.0:8000
+      - php composer install && php bin/console server:run 0.0.0.0:8000
     stdin_open: true
     tty: true

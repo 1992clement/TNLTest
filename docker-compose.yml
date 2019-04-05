@@ -1,0 +1,26 @@
+version: "2.0"
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database-env:/docker-entrypoint-initdb.d
+  php_symfony:
+    image: 1992clement/php-symfony:1.0.1
+    container_name: php-symfony
+    depends_on:
+      - db
+    volumes:
+      - ./:/var/www
+    ports:
+      - "8000:8000"
+    command:
+      - /bin/sh
+      - -c
+      - composer install && php bin/console server:run 0.0.0.0:8000
+    stdin_open: true
+    tty: true

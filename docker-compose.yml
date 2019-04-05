@@ -1,19 +1,19 @@
 version: "2.0"
 services:
-  db:
-    image: mysql:5.7
-    container_name: mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-    ports:
-      - "3306:3306"
-    volumes:
-      - ./database-env:/docker-entrypoint-initdb.d
+  #db:
+  #  image: mysql:5.7
+  #  container_name: mysql
+  #  environment:
+  #    MYSQL_ROOT_PASSWORD: root
+  #  ports:
+  #    - "3306:3306"
+  #  volumes:
+  #    - ./database-env:/docker-entrypoint-initdb.d
   php_symfony:
-    image: 1992clement/php-symfony:1.0.1
+    image: 1992clement/php-symfony:1.0.7
     container_name: php-symfony
-    depends_on:
-      - db
+    #depends_on:
+    #  - db
     volumes:
       - ./app:/var/www/app
     ports:

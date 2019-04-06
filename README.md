@@ -2,7 +2,9 @@
 TNL interview test
 
 Project requirements :\
-php 7+
+php 7+\
+docker\
+docker-compose
 
 To start project :
 ```

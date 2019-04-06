@@ -1,7 +1,7 @@
 CREATE DATABASE TNLdb;
 USE TNLdb;
-CREATE TABLE IF NOT EXISTS events (
-    event_id INT NOT NULL,
+CREATE TABLE IF NOT EXISTS event (
+    id INT NOT NULL,
     title VARCHAR(255) NOT NULL,
     description TEXT,
     place_name VARCHAR(255) NOT NULL,
@@ -12,5 +12,5 @@ CREATE TABLE IF NOT EXISTS events (
     event_url VARCHAR(255),
     picture_url VARCHAR(255),
     picture TEXT,
-    PRIMARY KEY (event_id)
+    PRIMARY KEY (id)
 )  ENGINE=INNODB;

@@ -1,7 +1,13 @@
 version: "2.0"
 services:
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
   db:
     image: mysql:5.7
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
     ports:
@@ -10,6 +16,7 @@ services:
       - ./database-env:/docker-entrypoint-initdb.d
   php_symfony:
     image: 1992clement/php-symfony:1.0.7
+    restart: always
     container_name: php-symfony
     depends_on:
       - db
